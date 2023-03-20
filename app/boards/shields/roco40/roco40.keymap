@@ -9,9 +9,9 @@
 
         default_layer {
             bindings = <
-                &kp Q    &kp W    &kp E
-                &kp A    &kp S    &kp D
-                &bt BT_CLR    &out OUT_BLE    &out OUT_USB
+                &kp Q    &kp W    &kp E   &kp R
+                &kp A    &kp S    &kp D   &kp F
+                &kp Z    &kp X    &kp C   &kp V
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
