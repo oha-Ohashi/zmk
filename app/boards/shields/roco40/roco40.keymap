@@ -7,6 +7,7 @@
 #define NUMBER   1
 #define SIGN   2
 #define SWITCH 3
+#define WASD 4
 
 / {
     keymap {
@@ -15,9 +16,9 @@
         default_layer {
             bindings = <
                 &kp TAB         &lt SIGN MINUS &kp W    &kp Y &kp B &kp ESC        &kp G    &kp M &kp D &kp F &kp BSPC
-                &kp LSFT        &kp O          &kp I    &kp E &kp A &kp U          &kp R    &kp T &kp K &kp N &kp S
-                &kp LCTL        &kp Z          &kp X    &kp C &kp V &none          &kp LGUI &kp H &kp J &kp L &kp P
-                &mt LC(LG(RIGHT)) LC(LG(LEFT)) &kp LALT &lt NUMBER LANG2 &mt LSHIFT SPC  &kp ENTER &lt SIGN LANG1 &mo SWITCH
+                &kp LSHIFT      &kp O          &kp I    &kp E &kp A &kp U          &kp R    &kp T &kp K &kp N &kp S
+                &kp LCTRL       &kp Z          &kp X    &kp C &kp V &kp RCTL       &kp LGUI &kp H &kp J &kp L &kp P
+                &mo WASD &kp LALT &lt NUMBER LANG2 &mt LSHIFT SPC  &kp ENTER &lt SIGN LANG1 &mo SWITCH
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
@@ -27,8 +28,8 @@
             bindings = <
                 &kp F12 &kp EXCLAMATION &kp AT_SIGN &kp HASH &kp DOLLAR &kp PERCENT &kp CARET &kp PLUS &kp MINUS &kp ASTERISK &kp SLASH
                 &kp F11 &kp N1          &kp N2      &kp N3   &kp N4     &kp N5      &kp N6    &kp N7   &kp N8    &kp N9       &kp N0
-                &none   &kp F1          &kp F2      &kp F3   &kp F4     &kp F5      &kp F6    &kp F7   &kp F8    &kp F9       &kp F10
-                &none   &kp LC(LG(LEFT)) &none   &kp LC(LG(RIGHT)) &kp COMMA &kp PERIOD &kp Q
+                &trans   &kp F1          &kp F2      &kp F3   &kp F4     &kp F5      &kp F6    &kp F7   &kp F8    &kp F9       &kp F10
+                &trans   &kp LC(LG(LEFT)) &trans   &kp LC(LG(RIGHT)) &kp COMMA &kp PERIOD &kp Q
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
@@ -36,10 +37,10 @@
 
         sign_layer {
             bindings = <
-                &none &none                 &kp BSPC &kp UP   &kp DEL &kp ENTER &kp GRAVE        &kp SINGLE_QUOTE &kp DOUBLE_QUOTES &none &kp BACKSLASH
-                &none &kp HOME              &kp LEFT &kp DOWN &kp RIGHT &kp END   &kp TILDE        &kp MINUS       &kp UNDERSCORE   &kp EQUAL &none
-                &none &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS &kp LEFT_BRACKET &kp RIGHT_BRACKET &none &none &kp LEFT_BRACE &kp RIGHT_BRACE &kp LESS_THAN &kp GREATER_THAN
-                &none &none                 &none    &none    &none    &none    &none
+                &kp PAGE_UP   &trans                 &kp BSPC &kp UP   &kp DEL &kp ENTER &kp GRAVE        &kp SINGLE_QUOTE &kp DOUBLE_QUOTES &trans &kp BACKSLASH
+                &kp PAGE_DOWN &kp HOME              &kp LEFT &kp DOWN &kp RIGHT &kp END   &kp TILDE        &kp MINUS       &kp UNDERSCORE   &kp EQUAL &trans
+                &trans        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS &kp LEFT_BRACKET &kp RIGHT_BRACKET &trans &trans &kp LEFT_BRACE &kp RIGHT_BRACE &kp LESS_THAN &kp GREATER_THAN
+                &trans        &trans                 &trans    &trans    &trans    &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
@@ -47,10 +48,21 @@
 
         switch_layer {
             bindings = <
-                    &none &kp EXCLAMATION &kp QUESTION &none &none &none        &bt BT_SEL 4 &none          &kp LG(UP) &none        &none
-                    &none &kp AMPERSAND   &kp PIPE     &none &none &none        &bt BT_SEL 3 &kp LG(LEFT)   &kp LG(DOWN) &kp LG(RIGHT) &none
-                    &none &kp SEMICOLON &kp COLON &none &none &bootloader  &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &out OUT_BLE &out OUT_USB
-                    &none &none &none &reset &none &none &none
+                    &trans &kp EXCLAMATION &kp QUESTION &trans &trans &trans        &bt BT_SEL 4 &trans          &kp LG(UP) &trans        &trans
+                    &trans &kp AMPERSAND   &kp PIPE     &trans &trans &trans        &bt BT_SEL 3 &kp LG(LEFT)   &kp LG(DOWN) &kp LG(RIGHT) &trans
+                    &trans &kp SEMICOLON &kp COLON &trans &trans &bootloader  &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &out OUT_BLE &out OUT_USB
+                    &trans &trans &trans &reset &trans &trans &trans
+                >;
+
+                sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
+            };
+
+        wasd_layer {
+            bindings = <
+                    &trans   &trans &kp W  &trans &trans  &trans        &trans &kp F7 &kp F8 &kp F9 &trans
+                    &kp LSFT &kp A  &kp S  &kp D  &kp SPC &trans        &trans &kp F4 &kp F5 &kp F6 &trans
+                    &trans   &trans &trans &trans &trans  &trans        &trans &kp F1 &kp F2 &kp F3 &trans
+                    &trans   &trans &trans &trans &trans  &kp LSHIFT &kp RSHIFT
                 >;
 
                 sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
