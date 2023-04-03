@@ -1,0 +1,10 @@
+file_format: "1"
+id: chiha68
+name: chiha68
+type: shield
+url: "#"
+requires:
+  - seeed_xiao
+features:
+  - keys
+  - encoder

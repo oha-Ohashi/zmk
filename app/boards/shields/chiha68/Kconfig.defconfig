@@ -1,0 +1,6 @@
+if SHIELD_CHIHA68
+
+config ZMK_KEYBOARD_NAME
+    default "chiha68"
+
+endif
