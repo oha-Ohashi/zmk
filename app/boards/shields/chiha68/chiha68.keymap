@@ -4,10 +4,8 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define NUMBER   1
-#define SIGN   2
-#define SWITCH 3
-#define WASD 4
+#define NUMBER  1
+#define CURSOR  2
 
 / {
     keymap {
@@ -15,57 +13,30 @@
 
         default_layer {
             bindings = <
-                &kp TAB         &lt SIGN MINUS &kp W    &kp Y &kp B &kp ESC        &kp G    &kp M &kp D &kp F &kp BSPC
-                &kp LSHIFT      &kp O          &kp I    &kp E &kp A &kp U          &kp R    &kp T &kp K &kp N &kp S
-                &kp LCTRL       &kp Z          &kp X    &kp C &kp V &kp RCTL       &kp LGUI &kp H &kp J &kp L &kp P
-                &mo WASD &kp LALT &lt NUMBER LANG2 &mt LSHIFT SPC  &kp ENTER &lt SIGN LANG1 &mo SWITCH
+                &kp ESC       &kp N1        &kp N2        &kp N3        &kp N4           &kp N5        &kp N6        &kp N7        &kp N8             &kp N9         &kp N0         &kp MINUS        &kp EQUAL         &kp BSPC
+                &kp TAB       &kp Q         &kp W         &kp E         &kp R            &kp T         &kp Y         &kp U         &kp I              &kp O          &kp P          &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp BACKSLASH
+                &kp CAPSLOCK  &kp A         &kp S         &kp D         &kp F            &kp G         &kp H         &kp J         &kp K              &kp L          &kp SEMICOLON  &kp SINGLE_QUOTE            &kp ENTER
+                &kp LSHIFT    &kp Z         &kp X         &kp C         &kp V            &kp B         &kp N         &kp M         &kp COMMA          &kp PERIOD     &kp SLASH      &kp GRAVE        &kp UP            &kp RSHIFT
+                &kp LCTRL     &kp LGUI      &kp LALT      &lt CURSOR LANG2         &kp SPC             &kp LANG1     &mo NUMBER &kp K_CONTEXT_MENU    &mo CURSOR     &kp RCTL       &kp LEFT         &kp DOWN          &kp RIGHT
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
         };
-
         number_layer {
             bindings = <
-                &kp F12 &kp EXCLAMATION &kp AT_SIGN &kp HASH &kp DOLLAR &kp PERCENT &kp CARET &kp PLUS &kp MINUS &kp ASTERISK &kp SLASH
-                &kp F11 &kp N1          &kp N2      &kp N3   &kp N4     &kp N5      &kp N6    &kp N7   &kp N8    &kp N9       &kp N0
-                &trans   &kp F1          &kp F2      &kp F3   &kp F4     &kp F5      &kp F6    &kp F7   &kp F8    &kp F9       &kp F10
-                &trans   &kp LC(LG(LEFT)) &trans   &kp LC(LG(RIGHT)) &kp COMMA &kp PERIOD &kp Q
+                &none &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12 &none 
+                &none &none  &none  &none  &none  &none  &none  &none  &none  &none  &none   &none   &none   &none 
+                &none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &none        &none 
+                &none &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT_BRACKET &kp RIGHT_BRACKET &none &none &kp LEFT_BRACE &kp RIGHT_BRACE &kp LESS_THAN &kp GREATER_THAN &none &none &none 
+                &none &none  &none  &none  &none      &none     &none  &none  &none  &none   &none   &none   &none
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
         };
-
-        sign_layer {
+        cursor_layer {
             bindings = <
-                &kp PAGE_UP   &trans                 &kp BSPC &kp UP   &kp DEL &kp ENTER &kp GRAVE        &kp SINGLE_QUOTE &kp DOUBLE_QUOTES &trans &kp BACKSLASH
-                &kp PAGE_DOWN &kp HOME              &kp LEFT &kp DOWN &kp RIGHT &kp END   &kp TILDE        &kp MINUS       &kp UNDERSCORE   &kp EQUAL &trans
-                &trans        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS &kp LEFT_BRACKET &kp RIGHT_BRACKET &trans &trans &kp LEFT_BRACE &kp RIGHT_BRACE &kp LESS_THAN &kp GREATER_THAN
-                &trans        &trans                 &trans    &trans    &trans    &trans    &trans
+                &none         &none    &none    &none    &none     &none     &none &none &none &none &none &bt BT_CLR &reset &bootloader
+                &kp PAGE_UP   &none    &kp BSPC &kp UP   &kp DEL   &kp ENTER &none &none &none &none &none &none &none &none
+                &kp PAGE_DOWN &kp HOME &kp LEFT &kp DOWN &kp RIGHT &kp END   &none &none &none &out OUT_BLE &out OUT_USB   &none &none
+                &none  &none  &none    &none    &none    &none     &none     &bt BT_SEL 4 &bt BT_SEL 5 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &kp  C_VOL_UP  &kp  C_MUTE
+                &none &none &kp LC(LG(LEFT)) &none &kp LC(LG(RIGHT))    &none    &none &none &none &none &kp C_PREVIOUS &kp C_VOL_DN &kp C_NEXT 
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
         };
-
-        switch_layer {
-            bindings = <
-                    &trans &kp EXCLAMATION &kp QUESTION &trans &trans &trans        &bt BT_SEL 4 &trans          &kp LG(UP) &trans        &trans
-                    &trans &kp AMPERSAND   &kp PIPE     &trans &trans &trans        &bt BT_SEL 3 &kp LG(LEFT)   &kp LG(DOWN) &kp LG(RIGHT) &trans
-                    &trans &kp SEMICOLON &kp COLON &trans &trans &bootloader  &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &out OUT_BLE &out OUT_USB
-                    &trans &trans &trans &reset &trans &trans &trans
-                >;
-
-                sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
-            };
-
-        wasd_layer {
-            bindings = <
-                    &trans   &trans &kp W  &trans &trans  &trans        &trans &kp F7 &kp F8 &kp F9 &trans
-                    &kp LSFT &kp A  &kp S  &kp D  &kp SPC &trans        &trans &kp F4 &kp F5 &kp F6 &trans
-                    &trans   &trans &trans &trans &trans  &trans        &trans &kp F1 &kp F2 &kp F3 &trans
-                    &trans   &trans &trans &trans &trans  &kp LSHIFT &kp RSHIFT
-                >;
-
-                sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp A B>;
-            };
     };
 };
