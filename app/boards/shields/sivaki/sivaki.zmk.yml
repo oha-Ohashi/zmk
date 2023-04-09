@@ -1,0 +1,9 @@
+file_format: "1"
+id: sivaki
+name: sivaki
+type: shield
+url: "#"
+requires:
+  - seeed_xiao
+features:
+  - keys
