@@ -8,7 +8,7 @@
 #define SIGN   2
 #define SWITCH 3
 #define WASD 4
-#define RIGHT 5
+#define RIGHTHAND 5
 #define GAME 6
 
 / {
@@ -20,7 +20,7 @@
                 &kp TAB         &lt SIGN MINUS &kp W    &kp Y &kp B &kp ESC        &kp G    &kp M &kp D &kp F &kp BSPC
                 &kp LSHIFT      &kp O          &kp I    &kp E &kp A &kp U          &kp R    &kp T &kp K &kp N &kp S
                 &kp LCTRL       &kp Z          &kp X    &kp C &kp V &kp RCTL       &kp LGUI &kp H &kp J &kp L &kp P
-                &kp LALT &mo WASD &lt NUMBER LANG2 &mt LSHIFT SPC       &none &none         &kp ENTER &lt SIGN LANG1 &mo SWITCH &mo RIGHT
+                &kp LALT &mo WASD &lt NUMBER LANG2 &mt LSHIFT SPC       &none &none         &lt RIGHTHAND ENTER &lt SIGN LANG1 &mo SWITCH &mo RIGHTHAND
             >;
         };
 
@@ -62,8 +62,8 @@
         
         right_layer {
             bindings = <
-                    &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans 
-                    &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans 
+                    &trans &trans &trans &trans &trans &trans    &kp LALT &kp TAB &kp LS(TAB) &trans &trans 
+                    &trans &trans &trans &trans &trans &trans    &kp LCTL &trans &trans &trans &trans 
                     &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &to GAME 
                     &trans &trans &trans &trans    &trans &trans    &trans &trans &trans &trans 
                 >;
