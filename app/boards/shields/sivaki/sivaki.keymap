@@ -20,7 +20,7 @@
                 &kp TAB         &lt SIGN MINUS &kp W    &kp Y &kp B &kp ESC        &kp G    &kp M &kp D &kp F &kp BSPC
                 &kp LSHIFT      &kp O          &kp I    &kp E &kp A &kp U          &kp R    &kp T &kp K &kp N &kp S
                 &kp LCTRL       &kp Z          &kp X    &kp C &kp V &kp RCTL       &kp LGUI &kp H &kp J &kp L &kp P
-                &kp LALT &mo WASD &lt NUMBER LANG2 &mt LSHIFT SPC       &none &none         &lt RIGHTHAND ENTER &lt SIGN LANG1 &mo SWITCH &mo RIGHTHAND
+                &kp LALT &mo WASD &lt NUMBER LANG2 &mt LSHIFT SPC       &none &none         &kp ENTER &lt SIGN LANG1 &mo RIGHTHAND &mo SWITCH
             >;
         };
 
@@ -44,10 +44,10 @@
 
         switch_layer {
             bindings = <
-                    &trans &kp EXCLAMATION &kp QUESTION &trans &trans &trans        &bt BT_SEL 4 &trans          &kp LG(UP) &trans        &trans
-                    &trans &kp AMPERSAND   &kp PIPE     &trans &trans &trans        &bt BT_SEL 3 &kp LG(LEFT)   &kp LG(DOWN) &kp LG(RIGHT) &trans
-                    &trans &kp SEMICOLON &kp COLON &trans &trans &bootloader  &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &out OUT_BLE &out OUT_USB
-                    &trans &trans &trans &reset     &trans &trans      &trans &trans &trans &trans
+                    &trans &trans &trans &trans &trans &trans          &bt BT_SEL 4 &trans          &trans  &trans       &kp C_VOL_UP
+                    &trans &trans &trans &trans &trans &trans          &bt BT_SEL 3 &trans          &kp TAB &kp LALT &kp C_VOL_DN
+                    &trans &trans &trans &trans &trans &trans          &bt BT_CLR &out OUT_BLE &out OUT_USB &bt BT_SEL 1 &bt BT_SEL 2
+                    &trans &trans &trans &trans     &trans &trans      &trans &trans &trans &trans
                 >;
             };
 
@@ -62,19 +62,19 @@
         
         right_layer {
             bindings = <
-                    &trans &trans &trans &trans &trans &trans    &kp LALT &kp TAB &kp LS(TAB) &trans &trans 
-                    &trans &trans &trans &trans &trans &trans    &kp LCTL &trans &trans &trans &trans 
-                    &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &to GAME 
-                    &trans &trans &trans &trans    &trans &trans    &trans &trans &trans &trans 
+                    &trans &kp EXCLAMATION &kp QUESTION &trans &trans &trans    &kp R   &kp E &kp W &kp Q &kp RSHIFT
+                    &trans &kp AMPERSAND   &kp PIPE     &trans &trans &trans    &kp SPC &kp A &kp S &kp D &kp RCTL
+                    &trans &kp SEMICOLON &kp COLON &trans &reset &bootloader    &kp V   &kp C &kp X &kp Z &kp TAB
+                    &trans &trans &trans &trans    &trans &trans    &trans &trans &trans &to GAME
                 >;
             };
 
         game_layer {
             bindings = <
-                    &kp LSFT &kp A &kp W  &kp E &kp R &kp T        &kp Y &kp U &kp I &kp O &kp P
-                    &kp LCTL &kp Z  &kp S &kp D &kp F &kp G        &kp H &kp J &kp K &kp L &none
-                    &trans   &trans &kp X &kp C &kp V &kp B        &kp N &kp M &none &none &to DEFAULT
-                    &trans &trans &trans &trans     &trans &trans    &trans  &trans &trans &trans
+                    &kp LSFT &kp A &kp W  &kp E &kp R &kp T       &kp Y &kp U &kp I &kp O &kp P
+                    &kp LCTL &kp Q &kp S &kp D &kp F &kp G        &kp H &kp J &kp K &kp L &none
+                    &kp TAB  &kp Z &kp X &kp C &kp V &kp B        &kp N &kp M &none &none &none
+                    &trans &kp LALT &mo NUMBER &kp SPC     &trans &trans    &trans  &trans &to DEFAULT &trans
                 >;
             };
     };
