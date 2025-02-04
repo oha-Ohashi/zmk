@@ -1,0 +1,6 @@
+if SHIELD_CLANE
+
+config ZMK_KEYBOARD_NAME
+    default "clane"
+
+endif

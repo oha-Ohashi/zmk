@@ -1,0 +1,9 @@
+file_format: "1"
+id: clane
+name: clane
+type: shield
+url: "#"
+requires:
+  - seeed_xiao
+features:
+  - keys
