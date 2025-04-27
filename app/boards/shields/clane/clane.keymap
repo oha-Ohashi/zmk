@@ -19,7 +19,8 @@
                 &kp TAB &none &kp W &kp Y &kp B &kp MINUS &kp Q &kp G &kp M &kp D &kp F &kp BSPC
                 &kp LSHIFT &kp O &kp I &kp E &kp A &kp U &none &kp R &kp T &kp K &kp N &kp S
                 &kp LCTRL &kp Z &kp X &kp C &kp V &kp COMMA &to QWERTY &kp PERIOD &kp H &kp J &kp L &kp P
-                &kp ESC &kp LGUI &mo VRC &lt SIGN LANG2 &mt LSHIFT SPC &kp ENTER &lt NUMBER LANG1 &none &none &kp LG(D)>;
+                &kp ESC &kp LGUI &mo VRC &lt SIGN LANG2 &mt LSHIFT SPC &kp ENTER &lt NUMBER LANG1 &kp Q &kp RCTRL &kp LG(D)>;
+                
         };
         qwerty_layer {
             bindings = <
@@ -34,7 +35,7 @@
                 &none &none &none &none &none &none &none
                 &kp SEMICOLON &kp EXCLAMATION &kp AT_SIGN &kp HASH &kp DOLLAR &kp PERCENT &none &kp CARET &kp PLUS &kp MINUS &kp ASTERISK &kp SLASH
                 &kp COLON &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &none &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
-                &none &kp F1 &kp F2 &kp F3 &kp F4 &none &kp COMMA &kp PERIOD &kp F9 &kp F10 &kp F11 &kp F12
+                &kp QUESTION &kp F1 &kp F2 &kp F3 &kp F4 &none &kp COMMA &kp PERIOD &kp F9 &kp F10 &kp F11 &kp F12
                 &kp F5 &kp F6 &kp F7 &kp F8 &none &kp LSHIFT &none &kp RSHIFT &none &none>;
         };
         sign_layer {
