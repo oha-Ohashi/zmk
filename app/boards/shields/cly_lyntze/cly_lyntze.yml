@@ -1,0 +1,9 @@
+file_format: "1"
+id: cly_lyntze
+name: cly_Lyntze
+type: shield
+url: 
+requires: [seeed_xiao]
+features:
+  - keys
+  - studio

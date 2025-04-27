@@ -1,0 +1,9 @@
+# Copyright (c) 2022 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_CLY_LYNTZE
+
+config ZMK_KEYBOARD_NAME
+    default "Cly_Lyntze"
+
+endif
