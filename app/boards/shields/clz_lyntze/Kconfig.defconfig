@@ -1,0 +1,6 @@
+if SHIELD_CLZ_LYNTZE
+
+config ZMK_KEYBOARD_NAME
+    default "clz_lyntze"
+
+endif
