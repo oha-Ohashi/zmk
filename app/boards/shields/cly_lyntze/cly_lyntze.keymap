@@ -1,97 +1,66 @@
-/*
- * Copyright (c) 2022 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define DEF_L 0
-#define NAV_L 1
-#define NUM_L 2
-#define SYM_L 3
+#define DEFAULT     0
+#define QWERTY      1
+#define NUMBER      2
+#define SIGN        3
+#define VRC         4
+#define GAME_SUB    5
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick-tap-ms = <200>; };
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <225>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-    };
 
-    combos {
-        compatible = "zmk,combos";
-        combo_z {
-            timeout-ms = <50>;
-            key-positions = <20 21>;
-            bindings = <&kp Z>;
-        };
-        combo_b {
-            timeout-ms = <50>;
-            key-positions = <21 22>;
-            bindings = <&kp B>;
-        };
-
-        combo_y {
-            timeout-ms = <50>;
-            key-positions = <23 24>;
-            bindings = <&kp Y>;
-        };
-
-        combo_slash {
-            timeout-ms = <50>;
-            key-positions = <24 25>;
-            bindings = <&kp SLASH>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp Q      &kp W      &kp E       &kp R           &kp T        &kp H            &kp U          &kp I       &kp O      &kp P
-                &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F     &kp G        &kp N            &hm RSHFT J    &hm RCTRL K &hm LALT L &hm RGUI SQT
-                           &kp X      &kp C       &kp V                                         &kp M          &kp COMMA  &kp DOT
-                                                  &lt NAV_L TAB  &kp RET       &lt NUM_L SPACE  &lt SYM_L BSPC
-            >;
+                &kp TAB &kp LALT &kp W &kp Y &kp B &kp MINUS &kp G &kp M &kp D &kp F &kp BSPC
+                &kp LSHIFT &kp O &kp I &kp E &kp A &kp U &none &kp R &kp T &kp K &kp N &kp S
+                &kp LCTRL &kp Z &kp X &kp C &kp V &kp COMMA &to QWERTY &kp PERIOD &kp H &kp J &kp L &kp P &kp C_VOL_UP
+                &kp ESC &kp LGUI &mo VRC &lt SIGN LANG2 &mt LSHIFT SPC &kp ENTER &lt NUMBER LANG1 &kp Q &kp RCTRL &kp C_VOL_DN>;
         };
 
-        nav_layer {
-            display-name = "Nav";
+        QWERTY_layer {
             bindings = <
-                &trans     &trans     &trans      &trans          &trans       &trans           &kp HOME       &kp UP &kp PG_UP  &trans
-                &trans     &trans     &trans      &trans          &trans       &trans           &kp LEFT       &kp DOWN &kp RIGHT   &trans
-                           &trans     &trans      &trans                                        &kp END        &trans   &kp PG_DN
-                                                  &trans          &trans       &kp ESC          &kp DEL
-            >;
+                &kp TAB &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp BSPC
+                &kp LSHIFT &kp A &kp S &kp D &kp F &kp G &to DEFAULT &kp H &kp K &kp K &kp L &kp P
+                &kp LCTL &kp Z &kp X &kp C &kp V &kp B &none &kp N &kp M &kp COMMA &kp PERIOD &kp SLASH &kp C_VOL_UP
+                &kp ESC &none &kp LALT &lt GAME_SUB LANG2 &kp SPC &kp ENTER &lt NUMBER LANG1 &none &none &kp C_VOL_DN>;
         };
 
-        num_layer {
-            display-name = "Num";
-            bindings = <
-                &kp LBKT   &kp N7     &kp N8      &kp N9          &kp RBKT      &trans          &trans         &trans      &trans     &trans
-                &kp SEMI   &kp N4     &kp N5      &kp N6          &kp EQUAL     &trans          &trans         &trans      &trans     &trans
-                           &kp N1     &kp N2      &kp N3                                        &trans         &trans      &trans
-                                                  &kp N0          &kp MINUS     &trans          &trans
-            >;
-        };
 
-        sym_layer {
-            display-name = "Sym";
+        number_layer {
             bindings = <
-                &kp LBRC   &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans     &trans
-                &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans
-                           &kp LS(N1) &kp LS(N2)  &kp LS(N3)                                    &trans         &trans      &trans
-                                                  &kp LS(N0)      &kp UNDER     &trans          &trans
-            >;
+                &kp SEMICOLON &kp EXCLAMATION &kp AT_SIGN &kp HASH &kp DOLLAR &kp PERCENT &kp CARET &kp PLUS &kp MINUS &kp ASTERISK &kp SLASH
+                &kp COLON &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &none &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                &kp QUESTION &kp F1 &kp F2 &kp F3 &kp F4 &kp COMMA &none &kp PERIOD &kp F9 &kp F10 &kp F11 &kp F12 &none
+                &kp F5 &kp F6 &kp F7 &kp F8 &none &kp LSHIFT &none &kp RSHIFT &none &none>;
+        };
+        sign_layer {
+            bindings = <
+                &kp PAGE_UP &none &kp BSPC &kp UP &kp DEL &kp ENTER &kp GRAVE &kp SINGLE_QUOTE &kp DOUBLE_QUOTES &none &kp BACKSLASH
+                &kp PAGE_DOWN &kp HOME &kp LEFT &kp DOWN &kp RIGHT &kp END &none &kp TILDE &kp MINUS &kp UNDERSCORE &kp EQUAL &kp NON_US_BSLH
+                &none &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp AMPS &none &kp PIPE &kp LEFT_BRACE &kp RIGHT_BRACE &kp LESS_THAN &kp GREATER_THAN &none
+                &none &none &none &none &none &none &none &none &none &none>;
+        };
+        vrc_layer {
+            bindings = <
+                &none &none &kp W &none &none &none &none &none &none &none &none
+                &kp LSFT &kp A &kp S &kp D &kp SPC &none &none &none &none &none &none &none
+                &none &kp Z &kp X &kp C &kp V &none &none &none &none &none &none &none &none
+                &none &none &none &none &none &none &none &none &none &none>;
+        };
+        game_sub_layer {
+            bindings = <
+                &none &none &none &none &none &none &none &none &none &none &none
+                &none &kp N1 &kp N2 &kp N3 &kp N4 &none &none &none &none &none &none &none
+                &none &none &none &kp M &kp I &none &none &none &none &none &none &none &none
+                &none &none &none &none &none &none &none &none &none &none>;
         };
     };
 };
